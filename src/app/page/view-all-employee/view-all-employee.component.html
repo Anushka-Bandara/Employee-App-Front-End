@@ -2,21 +2,23 @@
 
 <div class="container">
     <table class="table table-bordered">
-        <tr>
+        <tr class="border text-center bg-black text-white">
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
             <th>Department</th>
             <th>Role</th>
+            <th></th>
         </tr>
-        <tr *ngFor=" let employee of employeeList ">
+        <tr *ngFor=" let employee of employeeList" class="text-center border">
             <td>{{employee.id}}</td>
             <td>{{employee.firstName}}</td>
             <td>{{employee.lastName}}</td>
             <td>{{employee.email}}</td>
             <td>{{employee.departmentId}}</td>
             <td>{{employee.roleId}}</td>
+            <td><button  (click)="deleteEmolyee(employee)" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></td>
         </tr>
     </table>
 </div>

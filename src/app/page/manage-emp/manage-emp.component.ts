@@ -21,16 +21,15 @@ export class ManageEmpComponent {
     roleId: ""
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   addEmp() {
-    console.log(this.employee);
     this.http.post("http://localhost:8080/emp/add", this.employee).subscribe(
       (data) => {
         Swal.fire({
           title: "Employee Add!",
-          text: "That thing is still around?",
-          icon: "question"
+          text: "Successfully Added",
+          icon: "success"
         });
       }
     )
