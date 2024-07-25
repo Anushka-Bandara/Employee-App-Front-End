@@ -1,0 +1,38 @@
+<div class=" justify-content-center m-5">
+    <div class="row g-3">
+        <h1 class="fw-semibold">Add Employee</h1>
+
+        <div class="col-md-6 form-floating">
+            <input type="email" class="form-control" [(ngModel)]="employee.firstName" id="inputFirstName"
+                placeholder="abcd@email.com">
+            <label for="inputFirstName" class="form-label">First Name</label>
+        </div>
+        <div class="col-md-6 form-floating">
+            <input type="email" class="form-control" [(ngModel)]="employee.lastName" id="inputLastName"
+                placeholder="abcd@email.com">
+            <label for="inputLastName" class="form-label">Last Name</label>
+        </div>
+        <div class="col-12 form-floating">
+            <input type="email" class="form-control" [(ngModel)]="employee.email" id="inputEmail">
+            <label for="inputEmail" class="form-label">Email</label>
+        </div>
+
+        <div class="col-6 mb-3">
+            <label for="inputDepartmentId" class="form-label">Department Id</label>
+            <select id="inputDepartmentId" [(ngModel)]="employee.departmentId" class="form-select">
+                <option selected disabled>Choose...</option>
+                <option>D###</option>
+            </select>
+        </div>
+        <div class="col-6 mb-3">
+            <label for="inputRoleId" class="form-label">Role Id</label>
+            <select id="inputRoleId" [(ngModel)]="employee.roleId" class="form-select">
+                <option selected disabled>Choose...</option>
+                <option>R###</option>
+            </select>
+        </div>
+        <div class="col-12 text-center">
+            <button (click)="addEmp()" type="submit" class="btn btn-primary">Add Employee</button>
+        </div>
+    </div>
+</div>
