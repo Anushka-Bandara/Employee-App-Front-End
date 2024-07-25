@@ -23,6 +23,11 @@ export class ManageEmpComponent {
   constructor(private http: HttpClient) { }
 
   addEmp() {
-
+    console.log(this.employee);
+    this.http.post("http://localhost:8080/emp/add", this.employee).subscribe(
+      (data) => {
+        console.log(data)
+      }
+    )
   }
 }
