@@ -15,6 +15,15 @@ export class ViewAllEmployeeComponent {
 
   public employeeList: any;
 
+  public selectedEmpl = {
+    id: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    departmentId: "",
+    roleId: ""
+  }
+
   constructor(private http: HttpClient) {
     this.loademployeeTable();
   }
@@ -69,4 +78,14 @@ export class ViewAllEmployeeComponent {
     });
   }
 
+  updateEmolyee(employee: any) {
+    this.selectedEmpl = employee;
+  }
+
+  saveUpdateEmp() {
+    this.http.post("http://localhost:8080/emp/update", this.selectedEmpl).subscribe(
+      (data) => {
+      }
+    )
+  }
 }

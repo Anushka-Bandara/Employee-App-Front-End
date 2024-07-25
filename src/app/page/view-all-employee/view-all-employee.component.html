@@ -1,24 +1,74 @@
 <h1 class="fw-semibold mb-5">Add Employee</h1>
 
 <div class="container">
-    <table class="table table-bordered">
-        <tr class="border text-center bg-black text-white">
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Department</th>
-            <th>Role</th>
-            <th></th>
-        </tr>
-        <tr *ngFor=" let employee of employeeList" class="text-center border">
-            <td>{{employee.id}}</td>
-            <td>{{employee.firstName}}</td>
-            <td>{{employee.lastName}}</td>
-            <td>{{employee.email}}</td>
-            <td>{{employee.departmentId}}</td>
-            <td>{{employee.roleId}}</td>
-            <td><button  (click)="deleteEmolyee(employee)" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></td>
-        </tr>
-    </table>
+  <table class="table table-bordered">
+    <tr class="border text-center bg-black text-white">
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Department</th>
+      <th>Role</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor=" let employee of employeeList" class="text-center border">
+      <td>{{employee.id}}</td>
+      <td>{{employee.firstName}}</td>
+      <td>{{employee.lastName}}</td>
+      <td>{{employee.email}}</td>
+      <td>{{employee.departmentId}}</td>
+      <td>{{employee.roleId}}</td>
+      <td><button (click)="deleteEmolyee(employee)" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button>
+      </td>
+
+      <td><button (click)="updateEmolyee(employee)" class="btn btn-primary" data-bs-toggle="modal"
+          data-bs-target="#exampleModal"><i class="bi bi-pencil-square"></i></button></td>
+    </tr>
+  </table>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="col-12 form-floating">
+            <input type="email" class="form-control" [(ngModel)]="selectedEmpl.id" id="inputEmail">
+            <label for="inputEmail" class="form-label">Id</label>
+          </div>
+          <div class="col-md-6 form-floating">
+            <input type="email" class="form-control" [(ngModel)]="selectedEmpl.firstName" id="inputFirstName"
+              placeholder="abcd@email.com">
+            <label for="inputFirstName" class="form-label">First Name</label>
+          </div>
+          <div class="col-md-6 form-floating">
+            <input type="email" class="form-control" [(ngModel)]="selectedEmpl.lastName" id="inputLastName"
+              placeholder="abcd@email.com">
+            <label for="inputLastName" class="form-label">Last Name</label>
+          </div>
+          <div class="col-12 form-floating">
+            <input type="email" class="form-control" [(ngModel)]="selectedEmpl.email" id="inputEmail">
+            <label for="inputEmail" class="form-label">Email</label>
+          </div>
+          <div class="col-12 form-floating">
+            <input type="email" class="form-control" [(ngModel)]="selectedEmpl.departmentId" id="inputEmail">
+            <label for="inputEmail" class="form-label">Department</label>
+          </div>
+          <div class="col-12 form-floating">
+            <input type="email" class="form-control" [(ngModel)]="selectedEmpl.roleId" id="inputEmail">
+            <label for="inputEmail" class="form-label">Role</label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="saveUpdateEmp()" class="btn btn-primary">Update Employee</button>
+      </div>
+    </div>
+  </div>
 </div>
