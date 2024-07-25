@@ -1,0 +1,22 @@
+<h1 class="fw-semibold mb-5">Add Employee</h1>
+
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Role</th>
+        </tr>
+        <tr *ngFor=" let employee of employeeList ">
+            <td>{{employee.id}}</td>
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.departmentId}}</td>
+            <td>{{employee.roleId}}</td>
+        </tr>
+    </table>
+</div>
